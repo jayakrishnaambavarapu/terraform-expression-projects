@@ -42,3 +42,28 @@ output "printing-result" {
   value = [ for j in var.for-map-checking : j]
 
 }
+#checking if condition in for loop
+variable "for-if-condition" {
+  type = map(object({
+    name = string
+    is_admin = bool
+  }))
+  default = {
+   user1 =  {
+      name = "jayakrishna"
+      is_admin = false
+    },
+
+   user2 =  {
+      name = "dheeraj"
+      is_admin = true
+    }
+  }
+}
+
+output "if-condition-result" {
+  value = {for name, user in var.for-if-condition : name => user if user.name == "jayakrishna"}
+# name variable display key values ( user1 & user2 ), user variable displays values ( it is similar to key value pair)
+}
+
+

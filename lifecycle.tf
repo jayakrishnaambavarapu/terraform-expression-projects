@@ -22,4 +22,9 @@ resource "aws_vpc" "jaya-vpc" {
   }
 }
 # in the lifecycle block we have mentioned ignore changes for tags field,if i have changed tags or added new tags or deleted tags it will not detect those changes
+# if we mentioned ignore_changes = all it will ignore all the changes made in the resource attributes
+# lifecycle {
+#  ignore_changes = all
+#
+# }
 
